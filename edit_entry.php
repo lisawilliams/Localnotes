@@ -6,6 +6,7 @@ $page_title = "Edit a Localnote ";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<LINK href="style.css" rel="stylesheet" type="text/css">
 	<title><?php print($page_title) ?></title>
 </head>
 <body>
@@ -37,17 +38,17 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
 				$row = mysql_fetch_array($r); // Retrieve the information
 				
 				// Make the form: 
-				print '<form action="edit_entry.php" method="post">
+				print '<div id="contentwrapper"><h3>Edit Your Note</h3><form action="edit_entry.php" method="post">
 				<p>Entry Title:<input type="text" name="title" size="40" maxsize="10"
 				value="'.htmlentities($row['title']).'"</p>
 				<p>Entry Text:<textarea name="entry" cols="40" rows="5">'.htmlentities($row['entry']).'</textarea></p>
 				<input type="hidden" name="id" value="'.$_GET['id'].'"/>
 				<input type ="submit" name="submit" value="Update this entry" />
-				</form>';
+				</form></div>';
 				
 				}	else	{
 				
-					print '<p style="color:red;">Could not retrieve the blog entry because: <br />'
+					print '<p style="color:red;">Could not retrieve the note because: <br />'
 					.mysql_error().'.</p><p>The query being run was:'.$query.'</p>';
 				}
 				
@@ -63,7 +64,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
 						$entry = mysql_real_escape_string(trim($_POST['entry']));
 					}	else	{
 					
-						print '<p style="color:red;">Please submit both a title and an entry.</p>';
+						print '<p style="color:red;">Please submit both a title and a note.</p>';
 						$problem = TRUE;
 					}
 			
@@ -77,7 +78,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
 					// Report on the result: 
 					if(mysql_affected_rows() == 1) 
 					{
-					print '<p> the blog entry has been updated. <a href ="view_blog.php">View your entry.</a></p>';
+					print '<div ="contentwrapper"><p><h3> Your note has been updated. </h3><a href ="view_blog.php">View your note.</a></p></div>';
 					
 						// } else 	{
 // 							print '<p style="color:red;">Could not update the entry because: <br />'

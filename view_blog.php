@@ -6,6 +6,7 @@ $page_title = "My Localnotes";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<LINK href="style.css" rel="stylesheet" type="text/css">
 	<title><?php print($page_title) ?></title>
 </head>
 <body>
@@ -21,7 +22,7 @@ error_reporting(E_ALL|E_STRICT); // Show all possible problems!
 include ('includes/connect_db.inc.php');
 
 // Connect and select: 
-//$dbc = mysql_connect('localhost', 'localnotesuser', 'lavalamp');
+//$dbc = mysql_connect('localhost', 'username', 'password');
 //mysql_select_db('localnotes');
 
 // Define the query:
@@ -34,10 +35,10 @@ if ($r = mysql_query($query))
 		// Retrieve and print every record: 
 		while($row = mysql_fetch_array($r))
 			{ 
-				print "<p><H3>{$row['title']}</h3>
+				print "<div id=\"contentwrapper\"><p><H3>{$row['title']}</h3>
 				{$row['entry']}</br>
 				<a href=\"edit_entry.php?id={$row['entry_id']}\">Edit</A>
-				<a href=\"delete_entry.php?id={$row['entry_id']}\">Delete</a></p><hr />\n";
+				<a href=\"delete_entry.php?id={$row['entry_id']}\">Delete</a></p><hr /></div>\n";
 			}
 			
 	}	else	{		

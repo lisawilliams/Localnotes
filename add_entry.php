@@ -6,6 +6,7 @@ $page_title = "Add a Localnote";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<LINK href="style.css" rel="stylesheet" type="text/css">
 	<title><?php print($page_title) ?></title>
 </head>
 <body>
@@ -68,12 +69,16 @@ if(!$problem)
 // Display the form: 
 ?>
 
+<div id ="contentwrapper">
+<h3>Add a Localnote</h3>
 <form action="add_entry.php" method="post">
 <p>Entry Title:<input type="text" name="title" size="40" maxsize="10" /></p>
 <p>Entry Text:<textarea name="entry" cols="40" rows="5"></textarea></p>
 <input type="submit" name="submit" value="Post this entry" />
 <input type="hidden" name="submitted" value="true" />
 </form>
+</div>
+
 
 </body>
 </html>
