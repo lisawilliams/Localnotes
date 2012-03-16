@@ -20,7 +20,8 @@ Localnotes is a super-simple note-taking app that's intended to be used *locally
 * Point your browser at view_blog.php and you should be able to see your new entry. 
 
 **Notes:**
-*  While I have been a longtime tinkerer and bugfixer, I recently started teaching myself to write apps from scratch. This is the first piece of software I have ever written.  *Grouchy comments and snark will go straight to /dev/null.*  Mean people suck, so be nice.
+
+* While I have been a longtime tinkerer and bugfixer, I recently started teaching myself to write apps from scratch. This is the first piece of software I have ever written.  *Grouchy comments and snark will go straight to /dev/null.*  Mean people suck, so be nice.
 * I cannot, at this time, commit to fielding any support requests for Localnotes.  However, I am happy to allow anyone to fork this code and play with it, and would happily entertain pull requests. 
 * Use at your own risk. 
 *  I learned how to do this using Larry Ullman's excellent book PHP for the Web. 
