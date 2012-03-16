@@ -12,7 +12,7 @@ Localnotes is a super-simple note-taking app that's intended to be used *locally
 **Installation:**
 
 * In your web/htdocs folder, create a new folder entitled "localnotes."
-* Put the following files in that folder:  add_entry.php, create_db.php, create_table.php, edit_entry.php, view_blog.php.  
+* Put the following files in that folder:  add_entry.php, create_db.php, create_table.php, edit_entry.php, view_blog.php and style.css.   
 * Make one more folder inside localnotes and call it "includes."
 * Put connect_db.inc.php in the "includes" folder.  You will need to edit it and add the unique MySQL passwords of the MySQL user mentioned in the Requirements section. 
 * Point your browser at localhost/localnotes/create_db.php.  If successful, you should get a message telling you the Localnotes database has been created. 
