@@ -41,7 +41,7 @@ if($dbc = @mysql_connect('localhost', 'username', 'password'))
 	if($dbc) 
 		{ 
 			// Define the query: 
-			$query = 'CREATE TABLE entries (entry_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+			$query = 'CREATE TABLE notes (entry_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 			title VARCHAR(100) NOT NULL, 
 			entry TEXT NOT NULL,
 			date_entered DATETIME NOT NULL
@@ -50,7 +50,7 @@ if($dbc = @mysql_connect('localhost', 'username', 'password'))
 			// Execute the query: 
 			if(@mysql_query($query))
 				{
-					print '<p>The table has been created.</p>';
+					print '<p>The table has been created. <a href ="add_entry.php">Add your first entry.</a></p>';
 					
 				}	else	{
 				

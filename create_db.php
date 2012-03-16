@@ -28,7 +28,7 @@ if($dbc = @mysql_connect('localhost', 'username', 'password'))
 if(@mysql_query('CREATE DATABASE localnotes'))
 		
 	{
-			print '<p>The database has been created!</p>';
+			print '<p>The database has been created!  Now make the table that will store your entries:<a href ="create_table.php">Create table</p>.';
 			
 		}	else	{
 		

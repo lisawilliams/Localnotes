@@ -11,18 +11,21 @@ $page_title = "My Localnotes";
 <body>
 
 <?php // Script number 12.7, view_blog.php
-// This script retrieves blog entries from the database and displays them in the browser. 
+// This script retrieves blog notes from the database and displays them in the browser. 
 
 // error handling
 ini_set('display errors',1);  // Let me learn from my mistakes!
 error_reporting(E_ALL|E_STRICT); // Show all possible problems! 
 
+// Use include file instead of connect and select code:
+include ('includes/connect_db.inc.php');
+
 // Connect and select: 
-$dbc = mysql_connect('localhost', 'username', 'password');
-mysql_select_db('localnotes');
+//$dbc = mysql_connect('localhost', 'localnotesuser', 'lavalamp');
+//mysql_select_db('localnotes');
 
 // Define the query:
-$query = 'SELECT * FROM entries ORDER BY date_entered DESC';
+$query = 'SELECT * FROM notes ORDER BY date_entered DESC';
 
 // Run the query. 
 if ($r = mysql_query($query)) 

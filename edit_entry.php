@@ -1,5 +1,5 @@
 <?php
-$page_title = "Edit Blog Entry ";
+$page_title = "Edit a Localnote ";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -17,16 +17,19 @@ $page_title = "Edit Blog Entry ";
 ini_set('display errors',1);  // Let me learn from my mistakes!
 error_reporting(E_ALL|E_STRICT); // Show all possible problems! 
 
+// Use include file instead of connect and select code:
+include ('includes/connect_db.inc.php');
+
 // Connect and select: 
-$dbc = mysql_connect('localhost', 'database', 'lavalamp'); 
-mysql_select_db('myblog');
+//$dbc = mysql_connect('localhost', 'username', 'password'); 
+//mysql_select_db('localnotes');
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) 
 
 	{ 
 		// Display the entry in a form: 
 		// Define the query: 
-		$query = "SELECT title, entry FROM entries WHERE entry_id={$_GET['id']}";
+		$query = "SELECT title, entry FROM notes WHERE entry_id={$_GET['id']}";
 		if($r = mysql_query($query))
 			
 			{
@@ -68,13 +71,13 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
 			
 				{
 					// Define the query. 
-					$query = "UPDATE entries SET title='$title', entry='$entry' WHERE entry_id={$_POST['id']}";
+					$query = "UPDATE notes SET title='$title', entry='$entry' WHERE entry_id={$_POST['id']}";
 					$r = mysql_query($query); // Execute the query. 
 					
 					// Report on the result: 
 					if(mysql_affected_rows() == 1) 
 					{
-					print '<p> the blog entry has been updated.</p>';
+					print '<p> the blog entry has been updated. <a href ="view_blog.php">View your entry.</a></p>';
 					
 						// } else 	{
 // 							print '<p style="color:red;">Could not update the entry because: <br />'

@@ -1,5 +1,5 @@
 <?php
-$page_title = "Add a Blog Entry";
+$page_title = "Add a Localnote";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -21,10 +21,12 @@ error_reporting(E_ALL|E_STRICT); // Show all possible problems!
 if(isset($_POST['submitted']))
 
 {
+// Use include file instead of connect and select code:
+include ('includes/connect_db.inc.php');
 
 // Connect and select: 
-$dbc = mysql_connect('localhost','username	','password');
-mysql_select_db('localnotes');
+// $dbc = mysql_connect('localhost','username','password');
+// mysql_select_db('localnotes');
 
 // Validate form data: 
 $problem = FALSE;
@@ -42,13 +44,13 @@ if(!empty($_POST['title']) && !empty($_POST['entry']))
 if(!$problem)
 	{
 		// Define the query: 
-		$query = "INSERT INTO entries (entry_id, title, entry, date_entered) VALUES (0, '$title', '$entry', NOW())";
+		$query = "INSERT INTO notes (entry_id, title, entry, date_entered) VALUES (0, '$title', '$entry', NOW())";
 				 
 		// Execute the query: 
 		if(@mysql_query($query, $dbc))
 			{
 			
-				print '<p>Your blog entry has been added to the database.</p>';
+				print '<p>Your note has been added to the database. <a href ="view_blog.php">View your notes</a>.</p>';
 				
 			}	else	{
 				
