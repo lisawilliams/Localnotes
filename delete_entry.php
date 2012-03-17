@@ -23,14 +23,14 @@ include ('includes/connect_db.inc.php');
 
 
 // Connect and select:
-// $dbc = mysql_connect('localhost', 'localnotesuser', 'lavalamp');
+// $dbc = mysql_connect('localhost', 'username', 'password');
 // mysql_select_db('localnotes');
 
 if(isset($_GET['id']) && is_numeric($_GET['id']))
 	{
 		// Display the entry in a form:
 		// Define the query:
-		$query = "SELECT title, entry FROM entries WHERE entry_id={$_GET['id']}";
+		$query = "SELECT title, entry FROM notes WHERE entry_id={$_GET['id']}";
 		if($r = mysql_query($query)) 
 		
 			// Run the query. 
@@ -58,7 +58,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id']))
 			{
 				// Handle the form: 
 				// Define the query: 
-				$query = "DELETE FROM entries WHERE entry_id={$_POST['id']} LIMIT 1";
+				$query = "DELETE FROM notes WHERE entry_id={$_POST['id']} LIMIT 1";
 				$r = mysql_query($query); // Execute the query. 
 				
 				// Report on the result: 
