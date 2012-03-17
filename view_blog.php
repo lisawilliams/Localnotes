@@ -25,6 +25,10 @@ include ('includes/connect_db.inc.php');
 //$dbc = mysql_connect('localhost', 'username', 'password');
 //mysql_select_db('localnotes');
 
+// Print a link to make a new entry
+print '<div id ="contentwrapper"><H3>Localnotes</H3><p>
+<a href ="add_entry.php">Add a new localnote</a></p><br /><br /></div>';
+		
 // Define the query:
 $query = 'SELECT * FROM notes ORDER BY date_entered DESC';
 
@@ -32,9 +36,10 @@ $query = 'SELECT * FROM notes ORDER BY date_entered DESC';
 if ($r = mysql_query($query)) 
 
 	{
+		
 		// Retrieve and print every record: 
 		while($row = mysql_fetch_array($r))
-			{ 
+			{ 	
 				print "<div id=\"contentwrapper\"><p><H3>{$row['title']}</h3>
 				{$row['entry']}</br>
 				<a href=\"edit_entry.php?id={$row['entry_id']}\">Edit</A>

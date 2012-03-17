@@ -69,12 +69,18 @@ if(!$problem)
 // Display the form: 
 ?>
 
+<style>
+label textarea{
+ vertical-align: top;
+}
+</style>
+
 <div id ="contentwrapper">
 <h3>Add a Localnote</h3>
 <form action="add_entry.php" method="post">
-<p>Entry Title:<input type="text" name="title" size="40" maxsize="10" /></p>
-<p>Entry Text:<textarea name="entry" cols="40" rows="5"></textarea></p>
-<input type="submit" name="submit" value="Post this entry" />
+<p>Entry Title:  <input type="text" name="title" size="40" maxsize="10" /></p>
+<p>Entry Text:  <label><textarea name="entry" cols="40" rows="5"></textarea><label></p>
+<align ="left"><input type="submit" name="submit" value="Post this entry" /></align>
 <input type="hidden" name="submitted" value="true" />
 </form>
 </div>
