@@ -41,7 +41,7 @@ if ($r = mysql_query($query))
 		while($row = mysql_fetch_array($r))
 			{ 	
 				print "<div id=\"contentwrapper\"><p><H3>{$row['title']}</h3>
-				{$row['entry']}</br>
+				{$row['entry']}</br><br />
 				<a href=\"edit_entry.php?id={$row['entry_id']}\">Edit</A>
 				<a href=\"delete_entry.php?id={$row['entry_id']}\">Delete</a></p><hr /></div>\n";
 			}
@@ -51,6 +51,9 @@ if ($r = mysql_query($query))
 					print '<p style="color:red;">Could not retrieve the date because:<br />
 					'. mysql_error() .'.</p><p>The query being run was:'.$query.'</p>';
 	} // End of query IF. 
+
+// Can't quite seem to get the pagination include to work, so I'm commenting it out here. 
+// include('includes/pagination.inc.php');		
 	
 // Close the database connection. 	
 mysql_close();	
