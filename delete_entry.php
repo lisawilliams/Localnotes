@@ -17,10 +17,14 @@ $page_title = "Delete an Entry";
 ini_set('display errors',1);  // Let me learn from my mistakes!
 error_reporting(E_ALL|E_STRICT); // Show all possible problems! 
 
+
+// Use include file instead of connect and select code:
+include ('includes/connect_db.inc.php');
+
+
 // Connect and select:
-$dbc = mysql_connect('localhost', 'database', 'lavalamp');
-mysql_select_db('myblog');
 // $dbc = mysql_connect('localhost', 'localnotesuser', 'lavalamp');
+// mysql_select_db('localnotes');
 
 if(isset($_GET['id']) && is_numeric($_GET['id']))
 	{
