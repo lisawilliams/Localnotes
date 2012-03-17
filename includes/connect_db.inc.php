@@ -6,7 +6,7 @@
 
 
 // Connect and select: 
-$dbc = mysql_connect('localhost', 'localnotesuser', 'lavalamp'); 
+$dbc = mysql_connect('localhost', 'username', 'password'); 
 mysql_select_db('localnotes');
 ?>
 

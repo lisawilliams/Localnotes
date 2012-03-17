@@ -20,6 +20,7 @@ error_reporting(E_ALL|E_STRICT); // Show all possible problems!
 // Connect and select:
 $dbc = mysql_connect('localhost', 'database', 'lavalamp');
 mysql_select_db('myblog');
+// $dbc = mysql_connect('localhost', 'localnotesuser', 'lavalamp');
 
 if(isset($_GET['id']) && is_numeric($_GET['id']))
 	{
